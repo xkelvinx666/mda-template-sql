@@ -69,5 +69,10 @@ pipeline {
            )])
       }
     }
+    stage('after-publish') {
+       steps {
+        sshCommand remote: remote, command: "cd ~/template && tar -xzvf sql.tar && rm -rf sql && mv template sql && rm sql.tar"
+      }
+    }
   }
 }
