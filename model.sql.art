@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS <%= model.name %>(
+<% for(field of model.fields){ %>
+   `<%= field.name %>` <%= field.content.sqlType %> <% if ( field.content.isId ) { %>PRIMARY KEY<% } %> <% if ( field.content.isAutoGenerate ) { %>AUTO_INCREMENT<% } %>,
+<% } %>
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
